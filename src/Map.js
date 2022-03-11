@@ -7,14 +7,12 @@ export default function Map() {
   const [longitude, setLongitude] = useState(0);
 
   useEffect(() => {
-    console.log(
-      navigator.geolocation.getCurrentPosition(({ coords }) => {
-        const { latitude, longitude } = coords
-        setLatitude(latitude)
-        setLongitude(longitude)
-        map.setView([latitude, longitude], 13)
-      })
-    )
+    navigator.geolocation.getCurrentPosition(({ coords }) => {
+      const { latitude, longitude } = coords
+      setLatitude(latitude)
+      setLongitude(longitude)
+      map.setView([latitude, longitude], 13)
+    })
   }, [map])
 
   return (
